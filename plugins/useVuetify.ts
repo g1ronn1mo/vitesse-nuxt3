@@ -30,7 +30,6 @@ const myCustomDarkTheme: ThemeDefinition = {
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     theme: {
-      defaultTheme: 'myCustomLightTheme',
       themes: {
         myCustomLightTheme,
         myCustomDarkTheme,

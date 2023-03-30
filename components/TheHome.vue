@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// import { useTheme } from 'vuetify'
+import { useTheme } from 'vuetify'
 
-// // dark toggle
-// const theme = useTheme()
-// theme.value = () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
-// const isDark = ref(theme.global.name.value === 'myCustomLightTheme')
+// dark toggle
+const theme = useTheme()
+theme.value = () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+
 const openBizDescription = [
   {
     header: 'Store your data',
@@ -27,34 +27,34 @@ const openBizDescription = [
     link: '/data-storage/share-data',
   },
 
-]
+] // v-if="theme.global.current.value.dark"
 </script>
 
 <template>
-  <v-parallax src="bg-connections.jpg" height="900">
+  <v-parallax src="bg-connections.jpg" height="900" :class="[theme.global.current.value.dark ? 'invert' : ''] ">
     <!-- :class="{ invert: !isDark }" -->
-    <v-container>
-      <h1>
-        Welcome
-      </h1>
+    <v-container :class="[theme.global.current.value.dark ? 'invert' : ''] ">
+      <v-container>
+        <h1>
+          Welcome {{ }}
+        </h1>
 
-      <h2>BCF openBIS+ Instance</h2>
-    </v-container>
+        <h2>BCF openBIS+ Instance</h2>
+      </v-container>
+      <v-divider />
+      <v-container v-for="item in openBizDescription" :key="item.header">
+        <v-card>
+          <v-card-title>{{ item.header }}</v-card-title>
 
-    <v-divider />
+          <v-card-text>{{ item.text }}</v-card-text>
+        </v-card>
+      </v-container>
 
-    <v-container v-for="item in openBizDescription" :key="item.header">
-      <v-card>
-        <v-card-title>{{ item.header }}</v-card-title>
-
-        <v-card-text>{{ item.text }}</v-card-text>
-      </v-card>
-    </v-container>
-
-    <v-container>
-      <div>
-        This service is part of the Bioinformatics Core Facility (BCF) which provides a centralized IT-infrastructure for high-throughput data analysis.
-      </div>
+      <v-container>
+        <div>
+          This service is part of the Bioinformatics Core Facility (BCF) which provides a centralized IT-infrastructure for high-throughput data analysis.
+        </div>
+      </v-container>
     </v-container>
   </v-parallax>
 </template>
