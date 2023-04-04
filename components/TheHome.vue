@@ -31,7 +31,7 @@ const openBizDescription = [
 </script>
 
 <template>
-  <v-parallax src="bg-connections.jpg" height="900" :class="[theme.global.current.value.dark ? 'invert' : ''] ">
+  <v-parallax src="bg-connections.jpg" :class="[theme.global.current.value.dark ? 'invert' : ''] ">
     <!-- :class="{ invert: !isDark }" -->
     <v-container :class="[theme.global.current.value.dark ? 'invert' : ''] ">
       <v-container>
